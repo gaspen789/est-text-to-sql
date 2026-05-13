@@ -1,0 +1,13 @@
+---
+description: Global instructions for this project
+alwaysApply: true
+---
+
+# Global instructions
+
+- Do not duplicate code.
+- Always use components.
+- Use modals for alerts and confirmations.
+- Do not make changes in the '/Andmebaasi koopiad' directory.
+- Ask if something in the prompt is not clear.
+

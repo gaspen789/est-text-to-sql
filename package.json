@@ -1,0 +1,40 @@
+{
+  "name": "keelemudeli-haldur",
+  "private": true,
+  "type": "module",
+  "workspaces": ["frontend", "backend"],
+  "scripts": {
+    "dev": "npm run dev -w frontend",
+    "dev:server": "npm run dev -w backend",
+    "dev:all": "concurrently \"npm run dev -w frontend\" \"npm run dev -w backend\"",
+    "build": "npm run build -w frontend",
+    "build:server:standalone": "npm run build:standalone -w backend",
+    "test": "npm run test:unit && npm run test:e2e",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:debug": "playwright test --debug",
+    "test:e2e:install": "playwright install",
+    "lint": "npm run lint:frontend && npm run lint:backend",
+    "lint:frontend": "eslint frontend",
+    "lint:backend": "eslint backend",
+    "format": "prettier --write \"frontend/src/**/*.{ts,tsx}\"",
+    "format:check": "prettier --check \"frontend/src/**/*.{ts,tsx}\"",
+    "preview": "npm run preview -w frontend"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@playwright/test": "^1.55.0",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "prettier": "^3.7.4",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.46.4",
+    "vitest": "^3.2.4"
+  }
+}

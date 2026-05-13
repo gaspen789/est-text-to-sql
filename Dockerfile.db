@@ -1,0 +1,12 @@
+FROM postgres:18
+
+RUN apt-get update \
+    && apt-get install -y locales \
+    && echo "et_EE.UTF-8 UTF-8" >> /etc/locale.gen \
+    && locale-gen \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY docker/init-db.sh /docker-entrypoint-initdb.d/00-init.sh
+COPY docker/seed.sql /tmp/seed.sql
+COPY static/database_dump.sql /tmp/database_dump.sql
+RUN chmod +x /docker-entrypoint-initdb.d/00-init.sh
